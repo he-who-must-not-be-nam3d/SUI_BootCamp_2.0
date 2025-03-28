@@ -162,6 +162,26 @@ module calculator::Bootcamp {
     ) {
         vector::push_back(&mut history.operations, record);
     }
+    /// Approximate log2(n)
+    public fun log2_approx(n: u64): u64 {
+        let mut count = 0;
+        let mut value = n;
+        while (value > 1) {
+            value = value / 2;
+            count = count + 1;
+        };
+        count
+    }
+    /// Approximate log10(n) using repeated division
+    public fun log10_approx(n: u64): u64 {
+        let mut count = 0;
+        let mut value = n;
+        while (value >= 10) {
+            value = value / 10;
+            count = count + 1;
+        };
+        count
+    }
 
     /// Entry function to perform a calculation and create a Calculator object
     /// This is the main public interface for performing calculations
