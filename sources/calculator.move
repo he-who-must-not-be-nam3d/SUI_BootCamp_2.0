@@ -77,6 +77,8 @@ module calculator::Bootcamp {
     public fun subtract(a: u64, b: u64): u64 {
         // Ensure inputs are within allowed limits
         assert!(a <= MAX_CALCULATION_LIMIT && b <= MAX_CALCULATION_LIMIT, ERROR_OVERFLOW);
+        //Ensure a is greater than b before trying to substract
+        assert!(a >= b, ERROR_OVERFLOW);
         a - b
     }
 
